@@ -3,7 +3,7 @@ namespace synctech;
 
 use Yii;
 
-class RtechBaseApp
+class SynctBaseApp
 {
     public static function crypto($action, $string) {
 

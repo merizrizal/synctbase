@@ -1,5 +1,5 @@
 {
-    "name": "synctech/yii2-rtechbase",
+    "name": "synctech/yii2-synctbase",
     "description": "Property of Synctech.ID",
     "type": "yii2-extension",
     "require": {

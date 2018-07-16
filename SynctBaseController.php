@@ -4,7 +4,7 @@ namespace synctech;
 use Yii;
 use yii\filters\AccessControl;
 
-class RtechBaseController extends \yii\web\Controller
+class SynctBaseController extends \yii\web\Controller
 {
     public function getAccess()
     {
@@ -71,7 +71,7 @@ class RtechBaseController extends \yii\web\Controller
 
     public function beforeAction($action)
     {
-        Yii::$app->name = RtechBaseApp::crypto('decrypt', Yii::$app->name);
+        Yii::$app->name = SynctBaseApp::crypto('decrypt', Yii::$app->name);
 
         $os = php_uname('s');
         $file = null;
@@ -98,17 +98,17 @@ class RtechBaseController extends \yii\web\Controller
             $fileRead = fread($file, filesize($path));
             fclose($file);
 
-            $string1 = explode(RtechBaseApp::crypto('decrypt', 'dkxzaEt4NGw3N2ZQNGpNdW1YZ0gzQT09'), $fileRead);
-            $string2 = explode(RtechBaseApp::crypto('decrypt', 'QThWT3hDV1Q5WktqNG9SRXlXcE5VQT09'), $string1[1]);
+            $string1 = explode(SynctBaseApp::crypto('decrypt', 'dkxzaEt4NGw3N2ZQNGpNdW1YZ0gzQT09'), $fileRead);
+            $string2 = explode(SynctBaseApp::crypto('decrypt', 'QThWT3hDV1Q5WktqNG9SRXlXcE5VQT09'), $string1[1]);
 
-            if ((count($string1) > 0) && (time() <= (RtechBaseApp::crypto('decrypt', $string2[0]) + RtechBaseApp::crypto('decrypt', $string2[1])))) {
+            if ((count($string1) > 0) && (time() <= (SynctBaseApp::crypto('decrypt', $string2[0]) + SynctBaseApp::crypto('decrypt', $string2[1])))) {
 
                 $decoded = base64_decode($string1[0]);
                 $key = mb_substr($decoded, 0, 32, '8bit');
                 $iv = mb_substr($decoded, 32, 16, '8bit');
                 $ciphertext = mb_substr($decoded, 48, null, '8bit');
 
-                $flag = (RtechBaseApp::crypto('decrypt', RtechBaseApp::crypto('decrypt', $string1[0])) === gethostname());
+                $flag = (SynctBaseApp::crypto('decrypt', SynctBaseApp::crypto('decrypt', $string1[0])) === gethostname());
             }
 
             if (!$flag) {
@@ -131,13 +131,13 @@ class RtechBaseController extends \yii\web\Controller
 
     protected function submit($post) {
 
-        if (!empty($post[RtechBaseApp::crypto('decrypt', 'b1p3UVM2QTRvNjlSUG4yeEZ3OGNYZz09')][RtechBaseApp::crypto('decrypt', 'R0E4OUk0Tk5oaFF3ODhWZ2pNNHNEQT09')])) {
+        if (!empty($post[SynctBaseApp::crypto('decrypt', 'b1p3UVM2QTRvNjlSUG4yeEZ3OGNYZz09')][SynctBaseApp::crypto('decrypt', 'R0E4OUk0Tk5oaFF3ODhWZ2pNNHNEQT09')])) {
 
             $os = php_uname('s');
 
             $leftover = 0;
 
-            if (!empty($post[RtechBaseApp::crypto('decrypt', 'b1p3UVM2QTRvNjlSUG4yeEZ3OGNYZz09')][RtechBaseApp::crypto('decrypt', 'TUdGbUExM0NmNklqdFNXYlNYeWI4UT09')])) {
+            if (!empty($post[SynctBaseApp::crypto('decrypt', 'b1p3UVM2QTRvNjlSUG4yeEZ3OGNYZz09')][SynctBaseApp::crypto('decrypt', 'TUdGbUExM0NmNklqdFNXYlNYeWI4UT09')])) {
 
                 try {
 
@@ -156,12 +156,12 @@ class RtechBaseController extends \yii\web\Controller
                     $fileRead = fread($file, filesize($path));
                     fclose($file);
 
-                    $string = explode(RtechBaseApp::crypto('decrypt', 'dkxzaEt4NGw3N2ZQNGpNdW1YZ0gzQT09'), $fileRead);
-                    $string2 = explode(RtechBaseApp::crypto('decrypt', 'QThWT3hDV1Q5WktqNG9SRXlXcE5VQT09'), $string1[1]);
+                    $string = explode(SynctBaseApp::crypto('decrypt', 'dkxzaEt4NGw3N2ZQNGpNdW1YZ0gzQT09'), $fileRead);
+                    $string2 = explode(SynctBaseApp::crypto('decrypt', 'QThWT3hDV1Q5WktqNG9SRXlXcE5VQT09'), $string1[1]);
 
-                    if (time() <= (RtechBaseApp::crypto('decrypt', $string2[0]) + RtechBaseApp::crypto('decrypt', $string2[1]))) {
+                    if (time() <= (SynctBaseApp::crypto('decrypt', $string2[0]) + SynctBaseApp::crypto('decrypt', $string2[1]))) {
 
-                        $leftover = RtechBaseApp::crypto('decrypt', $string2[0]) + RtechBaseApp::crypto('decrypt', $string2[1]) - time();
+                        $leftover = SynctBaseApp::crypto('decrypt', $string2[0]) + SynctBaseApp::crypto('decrypt', $string2[1]) - time();
                     }
 
                 } catch (\yii\base\ErrorException $exc) {
@@ -178,16 +178,16 @@ class RtechBaseController extends \yii\web\Controller
 
             try {
 
-                $string = $post[RtechBaseApp::crypto('decrypt', 'b1p3UVM2QTRvNjlSUG4yeEZ3OGNYZz09')][RtechBaseApp::crypto('decrypt', 'R0E4OUk0Tk5oaFF3ODhWZ2pNNHNEQT09')];
-                $string = explode(RtechBaseApp::crypto('decrypt', 'dkxzaEt4NGw3N2ZQNGpNdW1YZ0gzQT09'), $string);
+                $string = $post[SynctBaseApp::crypto('decrypt', 'b1p3UVM2QTRvNjlSUG4yeEZ3OGNYZz09')][SynctBaseApp::crypto('decrypt', 'R0E4OUk0Tk5oaFF3ODhWZ2pNNHNEQT09')];
+                $string = explode(SynctBaseApp::crypto('decrypt', 'dkxzaEt4NGw3N2ZQNGpNdW1YZ0gzQT09'), $string);
 
                 $deadline = $string[1];
 
                 if ($leftover > 0) {
-                    $deadline = RtechBaseApp::crypto('encrypt', $leftover + RtechBaseApp::crypto('decrypt', $string[1]));
+                    $deadline = SynctBaseApp::crypto('encrypt', $leftover + SynctBaseApp::crypto('decrypt', $string[1]));
                 }
 
-                if (RtechBaseApp::crypto('decrypt', RtechBaseApp::crypto('decrypt', $string[0])) === gethostname()) {
+                if (SynctBaseApp::crypto('decrypt', SynctBaseApp::crypto('decrypt', $string[0])) === gethostname()) {
 
                     if (strpos($os, 'Windows') !== false) {
 
@@ -217,17 +217,17 @@ class RtechBaseController extends \yii\web\Controller
                     }
 
                     $fileRead = fwrite($file, $string[0]);
-                    $fileRead = fwrite($file, RtechBaseApp::crypto('decrypt', 'dkxzaEt4NGw3N2ZQNGpNdW1YZ0gzQT09'));
-                    $fileRead = fwrite($file, RtechBaseApp::crypto('encrypt', time()));
-                    $fileRead = fwrite($file, RtechBaseApp::crypto('decrypt', 'QThWT3hDV1Q5WktqNG9SRXlXcE5VQT09'));
+                    $fileRead = fwrite($file, SynctBaseApp::crypto('decrypt', 'dkxzaEt4NGw3N2ZQNGpNdW1YZ0gzQT09'));
+                    $fileRead = fwrite($file, SynctBaseApp::crypto('encrypt', time()));
+                    $fileRead = fwrite($file, SynctBaseApp::crypto('decrypt', 'QThWT3hDV1Q5WktqNG9SRXlXcE5VQT09'));
                     $fileRead = fwrite($file, $deadline);
 
                     fclose($file);
                 } else {
-                    return RtechBaseApp::crypto('decrypt', 'ZGlUNWd0bThIbWhxZUk3SFZ6S05LVExPNHNpR2lkTzVJaUFpbVR1RUdCbz0=');
+                    return SynctBaseApp::crypto('decrypt', 'ZGlUNWd0bThIbWhxZUk3SFZ6S05LVExPNHNpR2lkTzVJaUFpbVR1RUdCbz0=');
                 }
             } catch (\yii\base\ErrorException $exc){
-                return RtechBaseApp::crypto('decrypt', 'Y3ZNaGVzWDNSOUdUOGVNNndiQ1krd3NIdXo1L24zQnU4SmxBU0JXcW5rTT0=');
+                return SynctBaseApp::crypto('decrypt', 'Y3ZNaGVzWDNSOUdUOGVNNndiQ1krd3NIdXo1L24zQnU4SmxBU0JXcW5rTT0=');
             }
         }
 
@@ -237,9 +237,9 @@ class RtechBaseController extends \yii\web\Controller
     protected function getSyPage($err = null, $ul = null) {
 
         echo $this->renderPartial('@synctech/noaccess', [
-            RtechBaseApp::crypto('decrypt', 'ZzBrdzQ5V2R2MEZmaGV5Q244c3MvQT09') => RtechBaseApp::crypto('encrypt', gethostname()),
-            RtechBaseApp::crypto('decrypt', 'RHZUZ2NiVDF5SUFxK1QwUlB6T1g0UT09') => $err,
-            RtechBaseApp::crypto('decrypt', 'TUdGbUExM0NmNklqdFNXYlNYeWI4UT09') => $ul,
+            SynctBaseApp::crypto('decrypt', 'ZzBrdzQ5V2R2MEZmaGV5Q244c3MvQT09') => SynctBaseApp::crypto('encrypt', gethostname()),
+            SynctBaseApp::crypto('decrypt', 'RHZUZ2NiVDF5SUFxK1QwUlB6T1g0UT09') => $err,
+            SynctBaseApp::crypto('decrypt', 'TUdGbUExM0NmNklqdFNXYlNYeWI4UT09') => $ul,
         ]);
 
         exit;

@@ -9,7 +9,7 @@ use yii\db\ActiveRecord;
 use yii\imagine\Image;
 
 
-class RtechBaseModel extends \yii\db\ActiveRecord {
+class SynctBaseModel extends \yii\db\ActiveRecord {
 
     /**
      * @inheritdoc
