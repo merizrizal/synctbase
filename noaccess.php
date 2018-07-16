@@ -36,21 +36,15 @@ use yii\helpers\Html;
 
                         <p class="login-box-msg">Daftarkan Kode Lisensi</b></p>
 
-                        <div class="form-group has-error text-center">
-                            <p class="help-block"><?= $err ?></p>
-                        </div>
-
                         <?= Html::beginForm() ?>
 
-                        <div class="bg-white">
+                            <div class="form-group has-error text-center">
+                                <p class="help-block"><?= $err ?></p>
+                            </div>
+
                             <div class="form-group field-loginform-username required">
                                 <label class="control-label" for="kdRegistrasi">Kode Registrasi</label>
                                 <input type="text" id="kdRegistrasi" class="form-control" name="license[kdRegistrasi]" value="<?= $kdRegistrasi ?>" readonly="readonly" style="font-size: 11px">
-                                <p class="help-block help-block-error"></p>
-                            </div>
-                            <div class="form-group field-loginform-username required">
-                                <label class="control-label" for="kdAktivasi">Kode Aktivasi</label>
-                                <input type="text" id="kdAktivasi" class="form-control" name="license[kdAktivasi]" value="<?= $kdAktivasi ?>" readonly="readonly" style="font-size: 11px">
                                 <p class="help-block help-block-error"></p>
                             </div>
                             <div class="form-group field-loginform-username required">
@@ -58,11 +52,9 @@ use yii\helpers\Html;
                                 <input type="text" id="kdLisensi" class="form-control" name="license[kdLisensi]" style="font-size: 8px">
                                 <p class="help-block help-block-error"></p>
                             </div>
-                        </div>
-                        <div>
+
                             <?= Html::hiddenInput('license[updateLisensi]', !empty($updateLisensi) ? $updateLisensi : null) ?>
                             <?= Html::submitButton('Submit', ['class' => 'btn bg-red btn-block', 'name' => 'license[submit]']) ?>
-                        </div>
 
                         <?= Html::endForm() ?>
 
