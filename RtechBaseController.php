@@ -236,7 +236,7 @@ class RtechBaseController extends \yii\web\Controller
 
     protected function getSyPage($err = null, $ul = null) {
 
-        echo $this->renderPartial('@backend/views/site/noaccess', [
+        echo $this->renderPartial('@synctech/noaccess', [
             RtechBaseApp::crypto('decrypt', 'ZzBrdzQ5V2R2MEZmaGV5Q244c3MvQT09') => RtechBaseApp::crypto('encrypt', gethostname()),
             RtechBaseApp::crypto('decrypt', 'RHZUZ2NiVDF5SUFxK1QwUlB6T1g0UT09') => $err,
             RtechBaseApp::crypto('decrypt', 'TUdGbUExM0NmNklqdFNXYlNYeWI4UT09') => $ul,
