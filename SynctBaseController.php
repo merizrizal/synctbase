@@ -27,7 +27,7 @@ class SynctBaseController extends \yii\web\Controller
 
                                 $module = '';
 
-                                if (!empty($action->controller->module->id)){
+                                if (!($action->controller->module instanceof \yii\web\Application) && !empty($action->controller->module->id)){
 
                                     $module = $action->controller->module->id . '/';
                                 }
