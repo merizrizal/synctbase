@@ -1,2 +1,2 @@
-# rtechbase of synct
+# rtechbase of synctech
 
