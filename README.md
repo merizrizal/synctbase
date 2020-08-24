@@ -1,2 +1,2 @@
-# rtechbase of synctech
+# Base Class
 
