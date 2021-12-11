@@ -73,6 +73,7 @@ class SynctBaseController extends \yii\web\Controller
     {
         Yii::$app->name = SynctBaseApp::crypto('decrypt', Yii::$app->name);
 
+        /*
         $os = php_uname('s');
         $file = null;
         $err = '';
@@ -124,7 +125,7 @@ class SynctBaseController extends \yii\web\Controller
             }
 
             exit;
-        }
+        } */
 
         return parent::beforeAction($action);
     }
